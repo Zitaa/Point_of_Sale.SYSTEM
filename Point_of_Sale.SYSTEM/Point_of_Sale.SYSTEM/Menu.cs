@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Point_of_Sale.SYSTEM
 {
-    public partial class Form1 : Form
+    public partial class Menu : Form
     {
-        public Form1()
+        public Menu()
         {
             InitializeComponent();
         }
