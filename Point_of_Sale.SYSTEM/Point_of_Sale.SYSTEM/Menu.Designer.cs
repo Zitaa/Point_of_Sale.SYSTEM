@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.LogDisplay = new System.Windows.Forms.RichTextBox();
             this.TestButton = new System.Windows.Forms.Button();
+            this.TerminateButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,8 +47,10 @@
             // 
             this.LogDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.LogDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LogDisplay.Cursor = System.Windows.Forms.Cursors.Default;
             this.LogDisplay.Location = new System.Drawing.Point(0, 0);
             this.LogDisplay.Name = "LogDisplay";
+            this.LogDisplay.ReadOnly = true;
             this.LogDisplay.Size = new System.Drawing.Size(468, 210);
             this.LogDisplay.TabIndex = 0;
             this.LogDisplay.Text = "";
@@ -64,11 +67,23 @@
             this.TestButton.UseVisualStyleBackColor = false;
             this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
             // 
+            // TerminateButton
+            // 
+            this.TerminateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TerminateButton.Location = new System.Drawing.Point(-3, -5);
+            this.TerminateButton.Name = "TerminateButton";
+            this.TerminateButton.Size = new System.Drawing.Size(51, 53);
+            this.TerminateButton.TabIndex = 2;
+            this.TerminateButton.Text = "X";
+            this.TerminateButton.UseVisualStyleBackColor = true;
+            this.TerminateButton.Click += new System.EventHandler(this.TerminateButton_Click);
+            // 
             // Menu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1193, 695);
+            this.Controls.Add(this.TerminateButton);
             this.Controls.Add(this.TestButton);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -84,5 +99,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox LogDisplay;
         private System.Windows.Forms.Button TestButton;
+        private System.Windows.Forms.Button TerminateButton;
     }
 }
