@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.LogDisplay = new System.Windows.Forms.RichTextBox();
+            this.TestButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,13 +51,25 @@
             this.LogDisplay.Size = new System.Drawing.Size(468, 210);
             this.LogDisplay.TabIndex = 0;
             this.LogDisplay.Text = "";
-            this.LogDisplay.TextChanged += new System.EventHandler(this.LogDisplay_TextChanged);
+            // 
+            // TestButton
+            // 
+            this.TestButton.BackColor = System.Drawing.Color.Silver;
+            this.TestButton.Font = new System.Drawing.Font("Gadugi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestButton.Location = new System.Drawing.Point(899, 60);
+            this.TestButton.Name = "TestButton";
+            this.TestButton.Size = new System.Drawing.Size(239, 153);
+            this.TestButton.TabIndex = 1;
+            this.TestButton.Text = "Hamburger";
+            this.TestButton.UseVisualStyleBackColor = false;
+            this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
             // 
             // Menu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1193, 695);
+            this.Controls.Add(this.TestButton);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Menu";
@@ -70,5 +83,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox LogDisplay;
+        private System.Windows.Forms.Button TestButton;
     }
 }

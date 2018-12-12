@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using Point_of_Sale.SYSTEM.Utility;
+using Point_of_Sale.SYSTEM.Collection;
 
 namespace Point_of_Sale.SYSTEM
 {
@@ -10,9 +12,9 @@ namespace Point_of_Sale.SYSTEM
             InitializeComponent();
         }
 
-        private void LogDisplay_TextChanged(object sender, EventArgs e)
+        private void TestButton_Click(object sender, EventArgs e)
         {
-
+            IDish dish = Utilities.GetDishByName(TestButton.Text);
         }
     }
 }
