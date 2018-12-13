@@ -6,7 +6,7 @@ using System.IO;
 using Newtonsoft.Json.Serialization;
 using System.Reflection;
 using Point_of_Sale.SYSTEM.Collection;
-using System.Collections;
+using Point_of_Sale.SYSTEM.Collection.Accounts;
 
 namespace Point_of_Sale.SYSTEM.Utility
 {
@@ -15,9 +15,18 @@ namespace Point_of_Sale.SYSTEM.Utility
         public static List<Dish> allDishes = new List<Dish>();
         public static List<Ingredient> allIngredients = new List<Ingredient>();
 
-        public const string INGREDIENT_PATH = @"C:\Users\nicklas.haggqvist\Desktop\Point_of_Sale.SYSTEM\Data\Ingredients.json";
-        public const string DISH_PATH = @"C:\Users\nicklas.haggqvist\Desktop\Point_of_Sale.SYSTEM\Data\Dishes.json";
-        public const string SETTINGS_PATH = @"C:\Users\nicklas.haggqvist\Desktop\Point_of_Sale.SYSTEM\Data\settings.json";
+        public static string INGREDIENT_PATH;
+        public static string DISH_PATH;
+        public static string ACCOUNT_PATH;
+        public static string SETTINGS_PATH;
+
+        public static void Init()
+        {
+            INGREDIENT_PATH = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Data\\Ingredients.json";
+            DISH_PATH = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Data\\Dishes.json";
+            ACCOUNT_PATH = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Data\\Accounts.json";
+            SETTINGS_PATH = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Data\\Settings.json";
+        }
 
         public static IEnumerable<Ingredient> LoadIngredients(string path)
         {
@@ -50,6 +59,23 @@ namespace Point_of_Sale.SYSTEM.Utility
         {
             var settings = new JsonSerializerSettings() { ContractResolver = new ContractResolver() };
             var json = JsonConvert.SerializeObject(dishes, Formatting.Indented, settings);
+            File.WriteAllText(path, json);
+        }
+
+        public static IEnumerable<Account> LoadAccounts(string path)
+        {
+            if (File.Exists(path))
+            {
+                string json = File.ReadAllText(path);
+                return JsonConvert.DeserializeObject<List<Account>>(json);
+            }
+            return null;
+        }
+
+        public static void SaveAccounts(IEnumerable<Account> accounts, string path)
+        {
+            var settings = new JsonSerializerSettings() { ContractResolver = new ContractResolver() };
+            string json = JsonConvert.SerializeObject(accounts, Formatting.Indented, settings);
             File.WriteAllText(path, json);
         }
     }

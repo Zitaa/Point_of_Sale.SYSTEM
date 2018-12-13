@@ -1,4 +1,5 @@
 ﻿using Point_of_Sale.SYSTEM.Utility;
+using System;
 using System.Collections.Generic;
 
 namespace Point_of_Sale.SYSTEM.Collection
@@ -8,6 +9,7 @@ namespace Point_of_Sale.SYSTEM.Collection
         string Name { get; set; }
         uint Cost { get; set; }
 
+        string PrintIngredients();
         KeyValuePair<Ingredient, uint> GetOrCreateIngredient(string name, uint quantity);
         Ingredient CreateIngredient(string name);
     }
@@ -18,11 +20,24 @@ namespace Point_of_Sale.SYSTEM.Collection
         public uint Cost { get; set; }
 
         public List<Ingredient> ingredients = new List<Ingredient>();
+        public List<uint> quantities = new List<uint>();
 
         public Dish(string name, uint cost)
         {
             Name = name;
             Cost = cost;
+        }
+
+        public string PrintIngredients()
+        {
+            string ingredientsToReturn = string.Empty;
+            for (int i = 0; i < ingredients.Count; i++)
+            {
+                ingredientsToReturn += (quantities[i] > 1) ? 
+                    string.Format("{0} | {1}", quantities[i], ingredients[i].Name) : ingredients[i].Name;
+                ingredientsToReturn += Environment.NewLine;
+            }
+            return ingredientsToReturn;
         }
 
         public KeyValuePair<Ingredient, uint> GetOrCreateIngredient(string name, uint quantity)
@@ -65,6 +80,11 @@ namespace Point_of_Sale.SYSTEM.Collection
             ingredients.Add(_2.Key);
             ingredients.Add(_3.Key);
             ingredients.Add(_4.Key);
+
+            quantities.Add(_1.Value);
+            quantities.Add(_2.Value);
+            quantities.Add(_3.Value);
+            quantities.Add(_4.Value);
         }
     }
 
@@ -84,6 +104,12 @@ namespace Point_of_Sale.SYSTEM.Collection
             ingredients.Add(_3.Key);
             ingredients.Add(_4.Key);
             ingredients.Add(_5.Key);
+
+            quantities.Add(_1.Value);
+            quantities.Add(_2.Value);
+            quantities.Add(_3.Value);
+            quantities.Add(_4.Value);
+            quantities.Add(_5.Value);
         }
     }
 }

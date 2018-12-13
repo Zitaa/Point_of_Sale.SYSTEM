@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collection\Accounts\Account.cs" />
+    <Compile Include="Collection\Accounts\Accounts.cs" />
     <Compile Include="Collection\Dish.cs" />
     <Compile Include="Collection\Ingredient.cs" />
     <Compile Include="Menu.cs">
