@@ -41,7 +41,7 @@ namespace Point_of_Sale.SYSTEM.Utility
         public static void SaveIngredients(IEnumerable<Ingredient> ingredients, string path)
         {
             var settings = new JsonSerializerSettings() { ContractResolver = new ContractResolver() };
-            var json = JsonConvert.SerializeObject(allIngredients, Formatting.Indented, settings);
+            var json = JsonConvert.SerializeObject(ingredients, Formatting.Indented, settings);
             File.WriteAllText(path, json);
         }
 

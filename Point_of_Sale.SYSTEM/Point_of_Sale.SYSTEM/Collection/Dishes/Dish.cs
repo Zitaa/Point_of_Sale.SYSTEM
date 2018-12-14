@@ -1,22 +1,36 @@
-﻿using Point_of_Sale.SYSTEM.Utility;
+﻿using Point_of_Sale.SYSTEM.Collection.Dishes;
 using System;
 using System.Collections.Generic;
 
 namespace Point_of_Sale.SYSTEM.Collection
 {
-    internal interface IDish
-    {
-        string Name { get; set; }
-        uint Cost { get; set; }
-
-        string PrintIngredients();
-        KeyValuePair<Ingredient, uint> GetOrCreateIngredient(string name, uint quantity);
-        Ingredient CreateIngredient(string name);
-    }
-
     public class Dish : IDish
     {
         public string Name { get; set; }
+        public uint Cost { get; set; }
+
+        public List<Ingredient> Ingredients { get; set; }
+        public List<uint> Quantities { get; set; }
+
+        public Dish()
+        {
+            Ingredients = new List<Ingredient>();
+            Quantities = new List<uint>();
+        }
+
+        public string PrintIngredients()
+        {
+            string ingredientsToReturn = string.Empty;
+            for (int i = 0; i < Ingredients.Count; i++)
+            {
+                ingredientsToReturn += (Quantities[i] > 1) ?
+                    string.Format("{0} | {1}", Quantities[i], Ingredients[i].Name) : Ingredients[i].Name;
+                ingredientsToReturn += Environment.NewLine;
+            }
+            return ingredientsToReturn;
+        }
+
+        /*public string Name { get; set; }
         public uint Cost { get; set; }
 
         public List<Ingredient> ingredients = new List<Ingredient>();
@@ -63,10 +77,10 @@ namespace Point_of_Sale.SYSTEM.Collection
         ~Dish()
         {
 
-        }
+        }*/
     }
 
-    public class Hamburger : Dish
+    /*public class Hamburger : Dish
     {
         public Hamburger()
             : base("Hamburger", 10)
@@ -111,5 +125,5 @@ namespace Point_of_Sale.SYSTEM.Collection
             quantities.Add(_4.Value);
             quantities.Add(_5.Value);
         }
-    }
+    }*/
 }

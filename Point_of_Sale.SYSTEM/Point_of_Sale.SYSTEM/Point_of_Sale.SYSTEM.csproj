@@ -51,8 +51,13 @@
   <ItemGroup>
     <Compile Include="Collection\Accounts\Account.cs" />
     <Compile Include="Collection\Accounts\Accounts.cs" />
-    <Compile Include="Collection\Dish.cs" />
-    <Compile Include="Collection\Ingredient.cs" />
+    <Compile Include="Collection\Accounts\IAccount.cs" />
+    <Compile Include="Collection\Dishes\Dishes.cs" />
+    <Compile Include="Collection\Dishes\Dish.cs" />
+    <Compile Include="Collection\Dishes\IDish.cs" />
+    <Compile Include="Collection\Ingredients\IIngredient.cs" />
+    <Compile Include="Collection\Ingredients\Ingredient.cs" />
+    <Compile Include="Collection\Ingredients\Ingredients.cs" />
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -42,6 +42,7 @@
             this.LoggedInUser = new System.Windows.Forms.Label();
             this.Loginbutton = new System.Windows.Forms.Button();
             this.RegisterButton = new System.Windows.Forms.Button();
+            this.LogOutButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -194,11 +195,24 @@
             this.RegisterButton.UseVisualStyleBackColor = true;
             this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
+            // LogOutButton
+            // 
+            this.LogOutButton.FlatAppearance.BorderSize = 0;
+            this.LogOutButton.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogOutButton.Location = new System.Drawing.Point(1083, 591);
+            this.LogOutButton.Name = "LogOutButton";
+            this.LogOutButton.Size = new System.Drawing.Size(110, 28);
+            this.LogOutButton.TabIndex = 8;
+            this.LogOutButton.Text = "Log out";
+            this.LogOutButton.UseVisualStyleBackColor = true;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
+            // 
             // Menu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1193, 620);
+            this.Controls.Add(this.LogOutButton);
             this.Controls.Add(this.RegisterButton);
             this.Controls.Add(this.Loginbutton);
             this.Controls.Add(this.LoggedInUser);
@@ -233,5 +247,6 @@
         private System.Windows.Forms.Label LoggedInUser;
         private System.Windows.Forms.Button Loginbutton;
         private System.Windows.Forms.Button RegisterButton;
+        private System.Windows.Forms.Button LogOutButton;
     }
 }

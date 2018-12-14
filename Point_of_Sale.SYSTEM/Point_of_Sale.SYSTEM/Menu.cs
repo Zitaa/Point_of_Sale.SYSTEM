@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using Point_of_Sale.SYSTEM.Utility;
-using Point_of_Sale.SYSTEM.Collection;
-using System.IO;
 using Point_of_Sale.SYSTEM.Collection.Accounts;
 
 namespace Point_of_Sale.SYSTEM
@@ -12,6 +9,9 @@ namespace Point_of_Sale.SYSTEM
         public Menu()
         {
             InitializeComponent();
+            Hamburger hb = new Hamburger();
+            Cheeseburger chb = new Cheeseburger();
+            BigMac bm = new BigMac();
         }
 
         private void ClearUsernameInput()
@@ -43,7 +43,7 @@ namespace Point_of_Sale.SYSTEM
             string stringID = username.Replace(" ", string.Empty);
             stringID = stringID.ToLower();
 
-            Account account = Accounts.GetAccount(stringID);
+            Account account = Accounts.GetOrCreateAccount(username, password, AccountSecurity.Normal);
             if (account != null)
             {
                 if (account.Password.Equals(password))
@@ -72,7 +72,25 @@ namespace Point_of_Sale.SYSTEM
                 string username = UsernameInputTextBox.Text;
                 string password = PasswordInputTextBox.Text;
 
-                Accounts.CreateAccount(username, password, AccountSecurity.Normal);
+                Accounts.GetOrCreateAccount(username, password, AccountSecurity.Normal);
+            }
+        }
+
+        private void LogOutButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("You're about to log out. Are you sure?", 
+                "Log Out", 
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            switch (result)
+            {
+                case DialogResult.Yes:
+                    Program.LogOut();
+                    LoggedInUser.Text = string.Empty;
+                    break;
+                case DialogResult.No:
+                    break;
             }
         }
     }

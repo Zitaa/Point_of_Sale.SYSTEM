@@ -1,4 +1,6 @@
 ﻿using Point_of_Sale.SYSTEM.Collection;
+using Point_of_Sale.SYSTEM.Collection.Accounts;
+using Point_of_Sale.SYSTEM.Collection.Dishes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +25,8 @@ namespace Point_of_Sale.SYSTEM.Utility
                     case "Hamburger":
                         dishes.Add(new Hamburger() as IDish);
                         continue;
-                    case "CheeseBurger":
-                        dishes.Add(new CheeseBurger() as IDish);
+                    case "Cheeseburger":
+                        dishes.Add(new Cheeseburger() as IDish);
                         continue;
                 }
             }

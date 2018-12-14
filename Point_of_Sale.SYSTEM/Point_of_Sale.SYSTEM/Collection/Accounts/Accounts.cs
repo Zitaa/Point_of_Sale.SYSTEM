@@ -29,11 +29,22 @@ namespace Point_of_Sale.SYSTEM.Collection.Accounts
             Database.SaveAccounts(accounts, Database.ACCOUNT_PATH);
         }
 
-        public static Account CreateAccount(string username, string password, AccountSecurity security)
+        public static Account GetOrCreateAccount(string username, string password, AccountSecurity security)
         {
             string stringID = username.Replace(" ", string.Empty);
             stringID = stringID.ToLower();
 
+            IEnumerable<Account> result = from acc in accounts
+                                          where acc.StringID == stringID
+                                          select acc;
+
+            Account account = result.FirstOrDefault();
+            if (account is null) return CreateAccount(username, password, stringID, security);
+            return account;
+        }
+
+        public static Account CreateAccount(string username, string password, string stringID, AccountSecurity security)
+        {
             Account newAccount = new Account()
             {
                 Username = username,
@@ -44,17 +55,6 @@ namespace Point_of_Sale.SYSTEM.Collection.Accounts
             accounts.Add(newAccount);
             SaveAccounts();
             return newAccount;
-        }
-
-        public static Account GetAccount(string stringID)
-        {
-            IEnumerable<Account> result = from acc in accounts
-                                          where acc.StringID == stringID
-                                          select acc;
-
-            Account account = result.FirstOrDefault();
-            if (account is null) return null;
-            return account;
         }
     }
 }

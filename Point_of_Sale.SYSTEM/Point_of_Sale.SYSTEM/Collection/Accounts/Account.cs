@@ -14,7 +14,7 @@ namespace Point_of_Sale.SYSTEM.Collection.Accounts
         Admin
     };
 
-    public class Account
+    public class Account : IAccount
     {
         public string Username { get; set; }
         public string Password { get; set; }
