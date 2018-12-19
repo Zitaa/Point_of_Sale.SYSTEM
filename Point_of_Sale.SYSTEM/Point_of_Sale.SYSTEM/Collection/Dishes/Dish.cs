@@ -1,6 +1,7 @@
 ﻿using Point_of_Sale.SYSTEM.Collection.Dishes;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Point_of_Sale.SYSTEM.Collection
 {
@@ -24,7 +25,21 @@ namespace Point_of_Sale.SYSTEM.Collection
             for (int i = 0; i < Ingredients.Count; i++)
             {
                 ingredientsToReturn += (Quantities[i] > 1) ?
-                    string.Format("{0} | {1}", Quantities[i], Ingredients[i].Name) : Ingredients[i].Name;
+                    string.Format("{0} [x{1}]", Ingredients[i].Name, Quantities[i]) : Ingredients[i].Name;
+                ingredientsToReturn += Environment.NewLine;
+            }
+            return ingredientsToReturn;
+        }
+
+        public static string PrintIngredients(Dictionary<Ingredient, uint> dishIngredients)
+        {
+            string ingredientsToReturn = string.Empty;
+            for (int i = 0; i < dishIngredients.Count; i++)
+            {
+                ingredientsToReturn += (dishIngredients.ElementAt(i).Value > 1) ?
+                    string.Format("{0} [x{1}]", dishIngredients.ElementAt(i).Key.Name,
+                    dishIngredients.ElementAt(i).Value) : 
+                    dishIngredients.ElementAt(i).Key.Name;
                 ingredientsToReturn += Environment.NewLine;
             }
             return ingredientsToReturn;

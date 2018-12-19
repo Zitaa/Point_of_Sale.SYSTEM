@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.IO;
-using Newtonsoft.Json.Serialization;
-using System.Reflection;
 using Point_of_Sale.SYSTEM.Collection;
 using Point_of_Sale.SYSTEM.Collection.Accounts;
 
@@ -32,7 +28,7 @@ namespace Point_of_Sale.SYSTEM.Utility
         {
             if (File.Exists(path))
             {
-                var json = File.ReadAllText(path);
+                string json = File.ReadAllText(path);
                 return allIngredients = JsonConvert.DeserializeObject<List<Ingredient>>(json);
             }
             else return null;
@@ -40,8 +36,7 @@ namespace Point_of_Sale.SYSTEM.Utility
 
         public static void SaveIngredients(IEnumerable<Ingredient> ingredients, string path)
         {
-            var settings = new JsonSerializerSettings() { ContractResolver = new ContractResolver() };
-            var json = JsonConvert.SerializeObject(ingredients, Formatting.Indented, settings);
+            string json = JsonConvert.SerializeObject(ingredients, Formatting.Indented);
             File.WriteAllText(path, json);
         }
 
@@ -49,7 +44,7 @@ namespace Point_of_Sale.SYSTEM.Utility
         {
             if (File.Exists(path))
             {
-                var json = File.ReadAllText(path);
+                string json = File.ReadAllText(path);
                 return allDishes = JsonConvert.DeserializeObject<List<Dish>>(json);
             }
             else return null;
@@ -57,8 +52,7 @@ namespace Point_of_Sale.SYSTEM.Utility
 
         public static void SaveDishes(IEnumerable<Dish> dishes, string path)
         {
-            var settings = new JsonSerializerSettings() { ContractResolver = new ContractResolver() };
-            var json = JsonConvert.SerializeObject(dishes, Formatting.Indented, settings);
+            string json = JsonConvert.SerializeObject(dishes, Formatting.Indented);
             File.WriteAllText(path, json);
         }
 
@@ -74,13 +68,12 @@ namespace Point_of_Sale.SYSTEM.Utility
 
         public static void SaveAccounts(IEnumerable<Account> accounts, string path)
         {
-            var settings = new JsonSerializerSettings() { ContractResolver = new ContractResolver() };
-            string json = JsonConvert.SerializeObject(accounts, Formatting.Indented, settings);
+            string json = JsonConvert.SerializeObject(accounts, Formatting.Indented);
             File.WriteAllText(path, json);
         }
     }
 
-    public class ContractResolver : DefaultContractResolver
+    /*public class ContractResolver : DefaultContractResolver
     {
         protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
         {
@@ -92,5 +85,5 @@ namespace Point_of_Sale.SYSTEM.Utility
             props.ForEach(p => { p.Writable = true; p.Readable = true; });
             return props;
         }
-    }
+    }*/
 }

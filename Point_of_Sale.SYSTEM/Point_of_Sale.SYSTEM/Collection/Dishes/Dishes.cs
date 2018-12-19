@@ -1,10 +1,7 @@
 ﻿using Point_of_Sale.SYSTEM.Utility;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Point_of_Sale.SYSTEM.Collection.Accounts
 {
@@ -104,6 +101,32 @@ namespace Point_of_Sale.SYSTEM.Collection.Accounts
         }
     }
 
+    public class DoubleCheeseburger : Dish
+    {
+        public DoubleCheeseburger()
+            : base()
+        {
+            Ingredient _1 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Ketchup", 3);
+            Ingredient _2 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Senap", 3);
+            Ingredient _3 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Frystorkad Lök", 3);
+            Ingredient _4 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Gurka", 3);
+            Ingredient _5 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Ost", 3);
+
+            Ingredients.Add(_1);
+            Ingredients.Add(_2);
+            Ingredients.Add(_3);
+            Ingredients.Add(_4);
+            Ingredients.Add(_5);
+            Quantities.Add(1);
+            Quantities.Add(1);
+            Quantities.Add(1);
+            Quantities.Add(1);
+            Quantities.Add(2);
+
+            Dishes.GetOrCreateDish("Double Cheeseburger", 13, Ingredients, Quantities);
+        }
+    }
+
     public class BigMac : Dish
     {
         public BigMac()
@@ -127,6 +150,84 @@ namespace Point_of_Sale.SYSTEM.Collection.Accounts
             Quantities.Add(1);
 
             Dishes.GetOrCreateDish("Big Mac", 50, Ingredients, Quantities);
+        }
+    }
+
+    public class McFeast : Dish
+    {
+        public McFeast()
+            : base()
+        {
+            Ingredient _1 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Majonnäs", 3);
+            Ingredient _2 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Färsk Lök", 3);
+            Ingredient _3 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Sallad", 3);
+            Ingredient _4 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Tomat", 3);
+            Ingredient _5 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Ost", 3);
+
+            Ingredients.Add(_1);
+            Ingredients.Add(_2);
+            Ingredients.Add(_3);
+            Ingredients.Add(_4);
+            Ingredients.Add(_5);
+            Quantities.Add(1);
+            Quantities.Add(1);
+            Quantities.Add(1);
+            Quantities.Add(1);
+            Quantities.Add(1);
+
+            Dishes.GetOrCreateDish("McFeast", 60, Ingredients, Quantities);
+        }
+    }
+
+    public class QuarterPounder : Dish
+    {
+        public QuarterPounder()
+            : base()
+        {
+            Ingredient _1 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Ketchup", 3);
+            Ingredient _2 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Senap", 3);
+            Ingredient _3 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Färsk Lök", 3);
+            Ingredient _4 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Gurka", 3);
+            Ingredient _5 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Ost", 3);
+
+            Ingredients.Add(_1);
+            Ingredients.Add(_2);
+            Ingredients.Add(_3);
+            Ingredients.Add(_4);
+            Ingredients.Add(_5);
+            Quantities.Add(1);
+            Quantities.Add(1);
+            Quantities.Add(1);
+            Quantities.Add(1);
+            Quantities.Add(2);
+
+            Dishes.GetOrCreateDish("Quarter Pounder", 60, Ingredients, Quantities);
+        }
+    }
+
+    public class DoubleQuarterPounder : Dish
+    {
+        public DoubleQuarterPounder()
+            : base()
+        {
+            Ingredient _1 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Ketchup", 3);
+            Ingredient _2 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Senap", 3);
+            Ingredient _3 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Färsk Lök", 3);
+            Ingredient _4 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Gurka", 3);
+            Ingredient _5 = Collection.Ingredients.Ingredients.GetOrCreateIngredient("Ost", 3);
+
+            Ingredients.Add(_1);
+            Ingredients.Add(_2);
+            Ingredients.Add(_3);
+            Ingredients.Add(_4);
+            Ingredients.Add(_5);
+            Quantities.Add(1);
+            Quantities.Add(1);
+            Quantities.Add(1);
+            Quantities.Add(1);
+            Quantities.Add(2);
+
+            Dishes.GetOrCreateDish("Double Quarter Pounder", 60, Ingredients, Quantities);
         }
     }
 }

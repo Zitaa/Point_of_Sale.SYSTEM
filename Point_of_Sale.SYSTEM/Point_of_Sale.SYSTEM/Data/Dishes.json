@@ -5,64 +5,22 @@
     "Ingredients": [
       {
         "Name": "Ketchup",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Ketchup",
-        "<ExtraCost>k__BackingField": 3
+        "ExtraCost": 3
       },
       {
         "Name": "Senap",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Senap",
-        "<ExtraCost>k__BackingField": 3
+        "ExtraCost": 3
       },
       {
         "Name": "Frystorkad Lök",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Frystorkad Lök",
-        "<ExtraCost>k__BackingField": 3
+        "ExtraCost": 3
       },
       {
         "Name": "Gurka",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Gurka",
-        "<ExtraCost>k__BackingField": 3
+        "ExtraCost": 3
       }
     ],
     "Quantities": [
-      1,
-      1,
-      1,
-      1
-    ],
-    "<Name>k__BackingField": "Hamburger",
-    "<Cost>k__BackingField": 10,
-    "<Ingredients>k__BackingField": [
-      {
-        "Name": "Ketchup",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Ketchup",
-        "<ExtraCost>k__BackingField": 3
-      },
-      {
-        "Name": "Senap",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Senap",
-        "<ExtraCost>k__BackingField": 3
-      },
-      {
-        "Name": "Frystorkad Lök",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Frystorkad Lök",
-        "<ExtraCost>k__BackingField": 3
-      },
-      {
-        "Name": "Gurka",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Gurka",
-        "<ExtraCost>k__BackingField": 3
-      }
-    ],
-    "<Quantities>k__BackingField": [
       1,
       1,
       1,
@@ -75,77 +33,26 @@
     "Ingredients": [
       {
         "Name": "Ketchup",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Ketchup",
-        "<ExtraCost>k__BackingField": 3
+        "ExtraCost": 3
       },
       {
         "Name": "Senap",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Senap",
-        "<ExtraCost>k__BackingField": 3
+        "ExtraCost": 3
       },
       {
         "Name": "Frystorkad Lök",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Frystorkad Lök",
-        "<ExtraCost>k__BackingField": 3
+        "ExtraCost": 3
       },
       {
         "Name": "Gurka",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Gurka",
-        "<ExtraCost>k__BackingField": 3
+        "ExtraCost": 3
       },
       {
         "Name": "Ost",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Ost",
-        "<ExtraCost>k__BackingField": 3
+        "ExtraCost": 3
       }
     ],
     "Quantities": [
-      1,
-      1,
-      1,
-      1,
-      1
-    ],
-    "<Name>k__BackingField": "Cheeseburger",
-    "<Cost>k__BackingField": 13,
-    "<Ingredients>k__BackingField": [
-      {
-        "Name": "Ketchup",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Ketchup",
-        "<ExtraCost>k__BackingField": 3
-      },
-      {
-        "Name": "Senap",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Senap",
-        "<ExtraCost>k__BackingField": 3
-      },
-      {
-        "Name": "Frystorkad Lök",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Frystorkad Lök",
-        "<ExtraCost>k__BackingField": 3
-      },
-      {
-        "Name": "Gurka",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Gurka",
-        "<ExtraCost>k__BackingField": 3
-      },
-      {
-        "Name": "Ost",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Ost",
-        "<ExtraCost>k__BackingField": 3
-      }
-    ],
-    "<Quantities>k__BackingField": [
       1,
       1,
       1,
@@ -154,38 +61,61 @@
     ]
   },
   {
+    "Name": "Double Cheeseburger",
+    "Cost": 13,
+    "Ingredients": [
+      {
+        "Name": "Ketchup",
+        "ExtraCost": 3
+      },
+      {
+        "Name": "Senap",
+        "ExtraCost": 3
+      },
+      {
+        "Name": "Frystorkad Lök",
+        "ExtraCost": 3
+      },
+      {
+        "Name": "Gurka",
+        "ExtraCost": 3
+      },
+      {
+        "Name": "Ost",
+        "ExtraCost": 3
+      }
+    ],
+    "Quantities": [
+      1,
+      1,
+      1,
+      1,
+      2
+    ]
+  },
+  {
     "Name": "Big Mac",
     "Cost": 50,
     "Ingredients": [
       {
         "Name": "Bic Mac Sås",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Bic Mac Sås",
-        "<ExtraCost>k__BackingField": 3
+        "ExtraCost": 3
       },
       {
         "Name": "Frystorkad Lök",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Frystorkad Lök",
-        "<ExtraCost>k__BackingField": 3
+        "ExtraCost": 3
       },
       {
         "Name": "Sallad",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Sallad",
-        "<ExtraCost>k__BackingField": 3
+        "ExtraCost": 3
       },
       {
         "Name": "Gurka",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Gurka",
-        "<ExtraCost>k__BackingField": 3
+        "ExtraCost": 3
       },
       {
         "Name": "Ost",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Ost",
-        "<ExtraCost>k__BackingField": 3
+        "ExtraCost": 3
       }
     ],
     "Quantities": [
@@ -194,47 +124,105 @@
       1,
       1,
       1
-    ],
-    "<Name>k__BackingField": "Big Mac",
-    "<Cost>k__BackingField": 50,
-    "<Ingredients>k__BackingField": [
+    ]
+  },
+  {
+    "Name": "McFeast",
+    "Cost": 60,
+    "Ingredients": [
       {
-        "Name": "Bic Mac Sås",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Bic Mac Sås",
-        "<ExtraCost>k__BackingField": 3
+        "Name": "Majonnäs",
+        "ExtraCost": 3
       },
       {
-        "Name": "Frystorkad Lök",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Frystorkad Lök",
-        "<ExtraCost>k__BackingField": 3
+        "Name": "Färsk Lök",
+        "ExtraCost": 3
       },
       {
         "Name": "Sallad",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Sallad",
-        "<ExtraCost>k__BackingField": 3
+        "ExtraCost": 3
       },
       {
-        "Name": "Gurka",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Gurka",
-        "<ExtraCost>k__BackingField": 3
+        "Name": "Tomat",
+        "ExtraCost": 3
       },
       {
         "Name": "Ost",
-        "ExtraCost": 3,
-        "<Name>k__BackingField": "Ost",
-        "<ExtraCost>k__BackingField": 3
+        "ExtraCost": 3
       }
     ],
-    "<Quantities>k__BackingField": [
+    "Quantities": [
       1,
       1,
       1,
       1,
       1
+    ]
+  },
+  {
+    "Name": "Quarter Pounder",
+    "Cost": 60,
+    "Ingredients": [
+      {
+        "Name": "Ketchup",
+        "ExtraCost": 3
+      },
+      {
+        "Name": "Senap",
+        "ExtraCost": 3
+      },
+      {
+        "Name": "Färsk Lök",
+        "ExtraCost": 3
+      },
+      {
+        "Name": "Gurka",
+        "ExtraCost": 3
+      },
+      {
+        "Name": "Ost",
+        "ExtraCost": 3
+      }
+    ],
+    "Quantities": [
+      1,
+      1,
+      1,
+      1,
+      2
+    ]
+  },
+  {
+    "Name": "Double Quarter Pounder",
+    "Cost": 60,
+    "Ingredients": [
+      {
+        "Name": "Ketchup",
+        "ExtraCost": 3
+      },
+      {
+        "Name": "Senap",
+        "ExtraCost": 3
+      },
+      {
+        "Name": "Färsk Lök",
+        "ExtraCost": 3
+      },
+      {
+        "Name": "Gurka",
+        "ExtraCost": 3
+      },
+      {
+        "Name": "Ost",
+        "ExtraCost": 3
+      }
+    ],
+    "Quantities": [
+      1,
+      1,
+      1,
+      1,
+      2
     ]
   }
 ]

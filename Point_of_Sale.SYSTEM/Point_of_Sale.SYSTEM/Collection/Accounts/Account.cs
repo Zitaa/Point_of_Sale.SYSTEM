@@ -1,17 +1,9 @@
-﻿using Point_of_Sale.SYSTEM.Utility;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Point_of_Sale.SYSTEM.Collection.Accounts
+﻿namespace Point_of_Sale.SYSTEM.Collection.Accounts
 {
     public enum AccountSecurity
     {
-        Normal,
-        Admin
+        NORMAL = 0,
+        ADMIN = 1
     };
 
     public class Account : IAccount

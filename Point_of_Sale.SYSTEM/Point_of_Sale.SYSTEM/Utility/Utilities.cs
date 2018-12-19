@@ -1,7 +1,6 @@
 ﻿using Point_of_Sale.SYSTEM.Collection;
 using Point_of_Sale.SYSTEM.Collection.Accounts;
 using Point_of_Sale.SYSTEM.Collection.Dishes;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -11,28 +10,15 @@ namespace Point_of_Sale.SYSTEM.Utility
 {
     public static class Utilities
     {
-        public static void GenerateDishes(RichTextBox display)
+        public static void GenerateDishes()
         {
-            var q = from t in Assembly.GetExecutingAssembly().GetTypes()
-                    where t.IsClass && t.Namespace == "Point_of_Sale.SYSTEM.Collection"
-                    select t;
-
-            List<IDish> dishes = new List<IDish>();
-            foreach (var _class in q)
-            {
-                switch (_class.Name)
-                {
-                    case "Hamburger":
-                        dishes.Add(new Hamburger() as IDish);
-                        continue;
-                    case "Cheeseburger":
-                        dishes.Add(new Cheeseburger() as IDish);
-                        continue;
-                }
-            }
-
-            Database.allDishes = dishes.ConvertAll(x => (Dish)x);
-            Database.SaveDishes(Database.allDishes, Database.DISH_PATH);
+            new Hamburger();
+            new Cheeseburger();
+            new DoubleCheeseburger();
+            new BigMac();
+            new McFeast();
+            new QuarterPounder();
+            new DoubleQuarterPounder();
         }
 
         public static Dish GetDishByName(string name)
@@ -44,6 +30,11 @@ namespace Point_of_Sale.SYSTEM.Utility
             return null;
         }
 
+        public static int GetAmountOfDishes()
+        {
+            return Database.allDishes.Count;
+        }
+
         public static Ingredient GetIngredientByName(string name)
         {
             foreach (Ingredient ingredient in Database.allIngredients)
@@ -51,6 +42,11 @@ namespace Point_of_Sale.SYSTEM.Utility
                 if (ingredient.Name.ToLower().Equals(name.ToLower())) return ingredient;
             }
             return null;
+        }
+
+        public static int GetAmountOfIngredients()
+        {
+            return Database.allIngredients.Count;
         }
     }
 }
