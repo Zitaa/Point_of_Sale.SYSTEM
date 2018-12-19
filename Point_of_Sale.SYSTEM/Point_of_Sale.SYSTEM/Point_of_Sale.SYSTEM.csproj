@@ -84,6 +84,12 @@
     <Compile Include="TransparentRichTextBox.Designer.cs">
       <DependentUpon>TransparentRichTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransparentTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TransparentTextBox.Designer.cs">
+      <DependentUpon>TransparentTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utility\Database.cs" />
     <Compile Include="Utility\Logger.cs" />
     <Compile Include="Utility\Utilities.cs" />
@@ -107,6 +113,9 @@
     </Compile>
     <EmbeddedResource Include="TransparentRichTextBox.resx">
       <DependentUpon>TransparentRichTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransparentTextBox.resx">
+      <DependentUpon>TransparentTextBox.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

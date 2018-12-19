@@ -9,13 +9,19 @@ namespace Point_of_Sale.SYSTEM.Collection
     {
         public string Name { get; set; }
         public uint Cost { get; set; }
+        public uint ID { get; set; }
+        public bool ExistingOrder { get; set; }
 
         public List<Ingredient> Ingredients { get; set; }
+        public Dictionary<Ingredient, uint> ExtraIngredients { get; set; }
         public List<uint> Quantities { get; set; }
 
         public Dish()
         {
+            ExistingOrder = false;
+
             Ingredients = new List<Ingredient>();
+            ExtraIngredients = new Dictionary<Ingredient, uint>();
             Quantities = new List<uint>();
         }
 

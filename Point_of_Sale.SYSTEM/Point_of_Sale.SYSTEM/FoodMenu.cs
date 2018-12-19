@@ -10,58 +10,125 @@ namespace Point_of_Sale.SYSTEM
 {
     public partial class FoodMenu : Form
     {
-        private List<IDish> dishOrders = new List<IDish>();
+        private List<Dish> dishOrders = new List<Dish>();
         private Dish currentDishSelected;
+
+        private uint OrderCost;
 
         public FoodMenu()
         {
             InitializeComponent();
-            DishOrdersDisplay.SelectionAlignment = HorizontalAlignment.Center;
         }
 
         public void Init()
         {
-            ChangeIngredientsButton.Visible = false;
-
             List<Dish> dishes = Database.allDishes;
             for (int i = 0; i < dishes.Count; i++)
             {
-                AddFoodButton(dishes[i], i);
+                FoodLayoutPanel.Controls.Add(AddFoodButton(dishes[i]));
             }
         }
 
-        private void AddFoodButton(Dish dish, int index)
+        private Button AddFoodButton(Dish dish, string text = null, int width = 120, int height = 80)
         {
+            if (text is null) text = dish.Name;
+
             Button button = new Button
             {
-                Size = new Size(120, 80),
-                Text = dish.Name,
-                Tag = index
+                Size = new Size(width, height),
+                Text = text,
+                Tag = dish
             };
 
             button.Click += new EventHandler(Button_Click);
-            FoodLayoutPanel.Controls.Add(button);
+            return button;
         }
 
         public void AddDishToOrder(Dish dish)
         {
-            DishOrdersDisplay.Text += string.Format("...::* {0} *::...", dish.Name) + Environment.NewLine;
-            DishOrdersDisplay.Text += dish.PrintIngredients();
+            if (!dish.ExistingOrder)
+            {
+                dishOrders.Add(dish);
+                dish.ExistingOrder = true;
+                dish.ID = (uint)dishOrders.Count - 1;
+
+                DishOrdersDisplay.Text += string.Format("{0} ({1}Kr)", dish.Name.ToUpper(), dish.Cost) + Environment.NewLine;
+                foreach (KeyValuePair<Ingredient, uint> ingredient in dish.ExtraIngredients)
+                {
+                    if (ingredient.Value > 1)
+                    {
+                        DishOrdersDisplay.Text += string.Format("        EXTRA {0} [x{1}]",
+                        ingredient.Key.Name,
+                        ingredient.Value) + Environment.NewLine;
+                    }
+                    else
+                    {
+                        DishOrdersDisplay.Text += string.Format("        EXTRA {0}",
+                        ingredient.Key.Name) + Environment.NewLine;
+                    }
+                }
+
+                OrderCost += dish.Cost;
+                CostDisplay.Text = string.Format("{0}Kr ", OrderCost);
+
+                if (dish.ExtraIngredients.Count > 0) OrdersLayoutPanel.Controls.Add
+                        (AddFoodButton(dish, string.Format("{0}\n GRILL ORDER", dish.Name)));
+                else OrdersLayoutPanel.Controls.Add(AddFoodButton(dish));
+            }
+            else
+            {
+                DishOrdersDisplay.Text = string.Empty;
+                dishOrders[(int)dish.ID] = dish;
+                OrderCost = 0;
+                
+                for (int i = 0; i < dishOrders.Count; i++)
+                {
+                    DishOrdersDisplay.Text += string.Format("{0} ({1}Kr)", dishOrders[i].Name.ToUpper(),
+                        dishOrders[i].Cost) + Environment.NewLine;
+                    foreach (KeyValuePair<Ingredient, uint> ingredient in dishOrders[i].ExtraIngredients)
+                    {
+                        if (ingredient.Value > 1)
+                        {
+                            DishOrdersDisplay.Text += string.Format("        EXTRA {0} [x{1}]",
+                            ingredient.Key.Name,
+                            ingredient.Value) + Environment.NewLine;
+                        }
+                        else
+                        {
+                            DishOrdersDisplay.Text += string.Format("        EXTRA {0}",
+                            ingredient.Key.Name) + Environment.NewLine;
+                        }
+                    }
+
+                    if (dishOrders[i].ExtraIngredients.Count > 0)
+                        OrdersLayoutPanel.Controls[(int)dish.ID].Text = string.Format("{0}\n GRILL ORDER", dishOrders[i].Name);
+
+                    OrderCost += dishOrders[i].Cost;
+                    CostDisplay.Text = string.Format("{0}Kr ", OrderCost);
+                }
+            }
         }
 
         private void Button_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
-            for (int i = 0; i < Utilities.GetAmountOfDishes(); i++)
+            Dish dish = button.Tag as Dish;
+            
+            currentDishSelected = dish;
+
+            DishEditor editor = new DishEditor();
+            editor.Init(currentDishSelected, this, dish.ExistingOrder);
+
+            /*for (int i = 0; i < Utilities.GetAmountOfDishes(); i++)
             {
                 if (button.Text.ToLower().Equals(Database.allDishes[i].Name.ToLower()))
                 {
-                    IDish dish = Utilities.GetDishByName(button.Text);
-                    IngredientDisplay.Text = dish.PrintIngredients();
-                    currentDishSelected = dish as Dish;
-                    ChangeIngredientsButton.Visible = true;
+                    Dish dish = Utilities.GetDishByName(button.Text);
+                    currentDishSelected = dish;
+                    DishEditor editor = new DishEditor();
+                    editor.Init(currentDishSelected, this);
                 }
-            }
+            }*/
         }
 
         private void TerminateButton_Click_1(object sender, EventArgs e)
@@ -70,12 +137,6 @@ namespace Point_of_Sale.SYSTEM
             Menu mainMenu = Program.GetMainMenu();
             mainMenu.Show();
             foodMenu.Hide();
-        }
-
-        private void ChangeIngredientsButton_Click(object sender, EventArgs e)
-        {
-            DishEditor editor = new DishEditor();
-            editor.Init(currentDishSelected, this);
         }
     }
 }

@@ -17,6 +17,8 @@ namespace Point_of_Sale.SYSTEM
         private Dish originalDish;
         private FoodMenu foodMenu;
 
+        private bool existingOrder = false;
+
         public DishEditor()
         {
             InitializeComponent();
@@ -24,9 +26,29 @@ namespace Point_of_Sale.SYSTEM
 
         public void Init(Dish dish, FoodMenu foodMenu)
         {
-            this.Show();
+            Show();
             this.foodMenu = foodMenu;
             originalDish = dish;
+
+            for (int i = 0; i < dish.Ingredients.Count; i++)
+            {
+                dishIngredients.Add(dish.Ingredients[i], dish.Quantities[i]);
+            }
+            IngredientDisplay.Text = Dish.PrintIngredients(dishIngredients);
+
+            List<Ingredient> allIngredients = Database.allIngredients;
+            for (int i = 0; i < allIngredients.Count; i++)
+            {
+                AddIngredientButton(allIngredients[i], i);
+            }
+        }
+
+        public void Init(Dish dish, FoodMenu foodMenu, bool existingOrder)
+        {
+            Show();
+            this.foodMenu = foodMenu;
+            originalDish = dish;
+            this.existingOrder = existingOrder;
 
             for (int i = 0; i < dish.Ingredients.Count; i++)
             {
@@ -125,8 +147,8 @@ namespace Point_of_Sale.SYSTEM
                         ingredientFromOriginal = true;
                         if (originalDish.Quantities[x] < dishIngredients.ElementAt(i).Value)
                         {
-
                             totalExtraCost += dishIngredients.ElementAt(i).Key.ExtraCost;
+                            originalDish.ExtraIngredients.Add(dishIngredients.ElementAt(i).Key, dishIngredients.ElementAt(i).Value - 1);
                             break;
                         }
                     }
@@ -135,6 +157,7 @@ namespace Point_of_Sale.SYSTEM
                 if (!ingredientFromOriginal)
                 {
                     totalExtraCost += dishIngredients.ElementAt(i).Key.ExtraCost;
+                    originalDish.ExtraIngredients.Add(dishIngredients.ElementAt(i).Key, dishIngredients.ElementAt(i).Value);
                 }
             }
 
@@ -149,7 +172,9 @@ namespace Point_of_Sale.SYSTEM
                 }
                 else originalDish.Quantities.Add(1);
             }
+            originalDish.Cost += totalExtraCost;
             foodMenu.AddDishToOrder(originalDish);
+            this.Close();
         }
     }
 }

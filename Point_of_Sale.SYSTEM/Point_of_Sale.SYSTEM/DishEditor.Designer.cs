@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DishEditor));
             this.doubleBufferedPanel1 = new DoubleBufferedPanel();
+            this.FinishDish = new System.Windows.Forms.Button();
             this.RemoveIngredient = new System.Windows.Forms.Button();
             this.AddIngredient = new System.Windows.Forms.Button();
             this.doubleBufferedPanel2 = new DoubleBufferedPanel();
             this.IngredientDisplay = new Point_of_Sale.SYSTEM.TransparentRichTextBox();
             this.IngredientFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.FinishDish = new System.Windows.Forms.Button();
             this.doubleBufferedPanel1.SuspendLayout();
             this.doubleBufferedPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -54,17 +54,32 @@
             this.doubleBufferedPanel1.Controls.Add(this.doubleBufferedPanel2);
             this.doubleBufferedPanel1.Controls.Add(this.IngredientFlowPanel);
             this.doubleBufferedPanel1.Location = new System.Drawing.Point(0, 0);
+            this.doubleBufferedPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.doubleBufferedPanel1.Name = "doubleBufferedPanel1";
-            this.doubleBufferedPanel1.Size = new System.Drawing.Size(1120, 619);
+            this.doubleBufferedPanel1.Size = new System.Drawing.Size(1493, 849);
             this.doubleBufferedPanel1.TabIndex = 0;
+            // 
+            // FinishDish
+            // 
+            this.FinishDish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.FinishDish.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FinishDish.Location = new System.Drawing.Point(741, 671);
+            this.FinishDish.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FinishDish.Name = "FinishDish";
+            this.FinishDish.Size = new System.Drawing.Size(280, 74);
+            this.FinishDish.TabIndex = 3;
+            this.FinishDish.Text = "Finalize...";
+            this.FinishDish.UseVisualStyleBackColor = true;
+            this.FinishDish.Click += new System.EventHandler(this.FinishDish_Click);
             // 
             // RemoveIngredient
             // 
             this.RemoveIngredient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.RemoveIngredient.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RemoveIngredient.Location = new System.Drawing.Point(288, 545);
+            this.RemoveIngredient.Location = new System.Drawing.Point(384, 671);
+            this.RemoveIngredient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.RemoveIngredient.Name = "RemoveIngredient";
-            this.RemoveIngredient.Size = new System.Drawing.Size(210, 60);
+            this.RemoveIngredient.Size = new System.Drawing.Size(280, 74);
             this.RemoveIngredient.TabIndex = 2;
             this.RemoveIngredient.Text = "Remove";
             this.RemoveIngredient.UseVisualStyleBackColor = true;
@@ -74,9 +89,10 @@
             // 
             this.AddIngredient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddIngredient.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddIngredient.Location = new System.Drawing.Point(12, 545);
+            this.AddIngredient.Location = new System.Drawing.Point(16, 671);
+            this.AddIngredient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AddIngredient.Name = "AddIngredient";
-            this.AddIngredient.Size = new System.Drawing.Size(210, 60);
+            this.AddIngredient.Size = new System.Drawing.Size(280, 74);
             this.AddIngredient.TabIndex = 0;
             this.AddIngredient.Text = "Add";
             this.AddIngredient.UseVisualStyleBackColor = true;
@@ -89,9 +105,10 @@
             this.doubleBufferedPanel2.AutoSize = true;
             this.doubleBufferedPanel2.BackColor = System.Drawing.Color.Transparent;
             this.doubleBufferedPanel2.Controls.Add(this.IngredientDisplay);
-            this.doubleBufferedPanel2.Location = new System.Drawing.Point(772, 12);
+            this.doubleBufferedPanel2.Location = new System.Drawing.Point(1029, 15);
+            this.doubleBufferedPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.doubleBufferedPanel2.Name = "doubleBufferedPanel2";
-            this.doubleBufferedPanel2.Size = new System.Drawing.Size(335, 593);
+            this.doubleBufferedPanel2.Size = new System.Drawing.Size(447, 730);
             this.doubleBufferedPanel2.TabIndex = 0;
             // 
             // IngredientDisplay
@@ -100,8 +117,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.IngredientDisplay.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IngredientDisplay.Location = new System.Drawing.Point(0, 0);
+            this.IngredientDisplay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.IngredientDisplay.Name = "IngredientDisplay";
-            this.IngredientDisplay.Size = new System.Drawing.Size(332, 590);
+            this.IngredientDisplay.Size = new System.Drawing.Size(441, 725);
             this.IngredientDisplay.TabIndex = 0;
             this.IngredientDisplay.Text = "";
             // 
@@ -112,29 +130,19 @@
             this.IngredientFlowPanel.AutoSize = true;
             this.IngredientFlowPanel.BackColor = System.Drawing.Color.Transparent;
             this.IngredientFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.IngredientFlowPanel.Location = new System.Drawing.Point(12, 12);
+            this.IngredientFlowPanel.Location = new System.Drawing.Point(16, 15);
+            this.IngredientFlowPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.IngredientFlowPanel.Name = "IngredientFlowPanel";
-            this.IngredientFlowPanel.Size = new System.Drawing.Size(757, 525);
+            this.IngredientFlowPanel.Size = new System.Drawing.Size(1009, 646);
             this.IngredientFlowPanel.TabIndex = 1;
-            // 
-            // FinishDish
-            // 
-            this.FinishDish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.FinishDish.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FinishDish.Location = new System.Drawing.Point(556, 545);
-            this.FinishDish.Name = "FinishDish";
-            this.FinishDish.Size = new System.Drawing.Size(210, 60);
-            this.FinishDish.TabIndex = 3;
-            this.FinishDish.Text = "Finalize...";
-            this.FinishDish.UseVisualStyleBackColor = true;
-            this.FinishDish.Click += new System.EventHandler(this.FinishDish_Click);
             // 
             // DishEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 614);
+            this.ClientSize = new System.Drawing.Size(1492, 756);
             this.Controls.Add(this.doubleBufferedPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "DishEditor";
             this.Text = "DishEditor";
             this.doubleBufferedPanel1.ResumeLayout(false);
